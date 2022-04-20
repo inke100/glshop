@@ -10,10 +10,14 @@
     <description>glshop</description>
     <packaging>pom</packaging>
     <modules>
+        <module>gl-common</module>
         <module>gl-order</module>
-        <module>gl-coupon</module>
+       <!-- <module>gl-coupon</module>-->
         <module>gl-member</module>
         <module>gl-product</module>
         <module>gl-ware</module>
+        <module>renren-fast</module>
+        <module>renren-generator</module>
     </modules>
+
 </project>
