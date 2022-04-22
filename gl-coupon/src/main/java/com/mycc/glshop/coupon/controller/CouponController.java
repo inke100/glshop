@@ -1,20 +1,16 @@
 package com.mycc.glshop.coupon.controller;
 
+import com.mycc.common.utils.PageUtils;
+import com.mycc.common.utils.R;
+import com.mycc.glshop.coupon.entity.CouponEntity;
+import com.mycc.glshop.coupon.service.CouponService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.Arrays;
 import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
-import com.mycc.common.utils.PageUtils;
-import com.mycc.common.utils.R;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.mycc.glshop.coupon.entity.CouponEntity;
-import com.mycc.glshop.coupon.service.CouponService;
 
 
 
@@ -31,7 +27,13 @@ import com.mycc.glshop.coupon.service.CouponService;
 public class CouponController {
     @Autowired
     private CouponService couponService;
+    @RequestMapping("/member/list")
+    public R mermberCoupons(){
+        CouponEntity couponEntity = new CouponEntity();
+        couponEntity.setCouponName("99元优惠券");
 
+        return R.ok().put("coupon",Arrays.asList(couponEntity));
+    }
     /**
      * 列表
      */
