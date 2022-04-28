@@ -89,8 +89,7 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus-boot-starter.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+
                 <exclusions>
                     <exclusion>
                         <groupId>com.baomidou</groupId>
@@ -151,6 +150,11 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-bootstrap</artifactId>
                 <version>3.1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>2021.0.1.0</version>
             </dependency>
         </dependencies>
 
