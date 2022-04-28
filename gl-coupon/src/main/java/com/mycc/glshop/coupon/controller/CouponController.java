@@ -1,10 +1,15 @@
 package com.mycc.glshop.coupon.controller;
 
+import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.mycc.common.utils.PageUtils;
 import com.mycc.common.utils.R;
 import com.mycc.glshop.coupon.entity.CouponEntity;
 import com.mycc.glshop.coupon.service.CouponService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -22,11 +27,22 @@ import java.util.Map;
  * @email 
  * @date 2022-04-20 11:02:02
  */
+
 @RestController
 @RequestMapping("coupon/coupon")
+@RefreshScope(proxyMode = ScopedProxyMode.DEFAULT)
 public class CouponController {
     @Autowired
     private CouponService couponService;
+
+    @Value("${coupon-user-name}")
+    private String name;
+    @Value("${coupon-user-age}")
+    private String age;
+    @RequestMapping(path = "test")
+    public R test(){
+        return R.ok().put("name",name).put("age",age);
+    }
     @RequestMapping("/member/list")
     public R mermberCoupons(){
         CouponEntity couponEntity = new CouponEntity();
