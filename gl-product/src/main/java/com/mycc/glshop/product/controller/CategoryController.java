@@ -1,6 +1,7 @@
 package com.mycc.glshop.product.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -23,7 +24,7 @@ import com.mycc.common.utils.R;
  *
  * @author mycc
  * @email 
- * @date 2022-04-19 14:29:37
+ * @date 2022-05-03 22:02:51
  */
 @RestController
 @RequestMapping("product/category")
@@ -85,6 +86,14 @@ public class CategoryController {
 		categoryService.removeByIds(Arrays.asList(catIds));
 
         return R.ok();
+    }
+
+    @RequestMapping("/list/tree")
+    // @RequiresPermissions("product:category:list")
+    public R listWithTree(@RequestParam Map<String, Object> params){
+        List<CategoryEntity> entities = categoryService.listWithTree();
+
+        return R.ok().put("data", entities);
     }
 
 }

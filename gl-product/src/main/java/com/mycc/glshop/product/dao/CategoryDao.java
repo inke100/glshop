@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Mapper;
  * 
  * @author mycc
  * @email 
- * @date 2022-04-18 22:13:10
+ * @date 2022-05-03 22:02:51
  */
 @Mapper
 public interface CategoryDao extends BaseMapper<CategoryEntity> {

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.mycc.common.utils.PageUtils;
 import com.mycc.glshop.product.entity.CategoryEntity;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -11,10 +12,12 @@ import java.util.Map;
  *
  * @author mycc
  * @email 
- * @date 2022-04-18 22:13:10
+ * @date 2022-05-03 22:02:51
  */
 public interface CategoryService extends IService<CategoryEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+    //tree形式展示列表
+    List<CategoryEntity> listWithTree();
 }
 
